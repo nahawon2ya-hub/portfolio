@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
 import project from '../json/projects.json'
 
 function Projects() {
-  const [type, setType] = useState();
 
   return (
     <div className='projects'>
@@ -13,13 +11,13 @@ function Projects() {
           {
             project.map((item,i)=>(
               <div className='projects_1' key={i}>
-                <a href={item.siteLink} className='projects_img clickable'><img src={item.image}/></a>
+                <a href={item.siteLink} target="_blank" className='projects_img clickable'><img src={item.image}/></a>
 
                 <div className='projects_content'>
                   <div className='projects_content_1'>
                     <div>Ongib</div>
-                    <a href={item.siteLink} className='clickable'><img src='./img/link.svg' /></a>
-                    <a href={item.githubLink} className='clickable'><img src='./img/projects_github.svg' /></a>
+                    <a href={item.siteLink} target="_blank" className='clickable'><img src='./img/link.svg' /></a>
+                    <a href={item.githubLink} target="_blank" className='clickable'><img src='./img/projects_github.svg' /></a>
                   </div>
 
                   <div className='projects_content_2'>{item.subtitle}</div>
