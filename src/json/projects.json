@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "title": "Ongib",
+    "subtitle": "유기동물 입양사이트",
+    "date": "2026.03.02~2026.03.10",
+    "description": "HTML, CSS, JavaScript, JSON, Open API를 활용해 개발한 웹 플랫폼입니다. 주요 기능을 폼과 이벤트 처리로 구현하여 사용성을 높였습니다. 입양문의는 Open API, 입양후기는 JSON 데이터 연동으로 정보를 제공하였습니다. 모바일과 태블릿 환경에서도 편리하게 사용할 수 있도록 CSS 기반 반응형 디자인을 적용했습니다.",
+    "skills": ["HTML", "CSS", "JavaScript"],
+    "image": "/img/project_1.jpg",
+    "siteLink": "https://soyoung00.github.io/onjib-project/",
+    "githubLink": "https://github.com/soyoung00/onjib-project.git"
+  },
+  {
+    "id": 1,
+    "title": "Ongib",
+    "subtitle": "유기동물 입양사이트",
+    "date": "2026.03.02~2026.03.10",
+    "description": [
+      "HTML, CSS, JavaScript, JSON, Open API를 활용해 개발한 웹 플랫폼입니다.",
+      "주요 기능을 폼과 이벤트 처리로 구현하여 사용성을 높였습니다.",
+      "입양문의는 Open API, 입양후기는 JSON 데이터 연동으로 정보를 제공하였습니다.",
+      "모바일과 태블릿 환경에서도 편리하게 사용할 수 있도록 CSS 기반 반응형 디자인을 적용했습니다."
+    ],
+    "skills": ["HTML", "CSS", "JavaScript"],
+    "image": "/img/project_1.jpg",
+    "siteLink": "https://soyoung00.github.io/onjib-project/",
+    "githubLink": "https://github.com/soyoung00/onjib-project.git"
+  },
+  {
+    "id": 1,
+    "title": "Ongib",
+    "subtitle": "유기동물 입양사이트",
+    "date": "2026.03.02~2026.03.10",
+    "description": [
+      "HTML, CSS, JavaScript, JSON, Open API를 활용해 개발한 웹 플랫폼입니다.",
+      "주요 기능을 폼과 이벤트 처리로 구현하여 사용성을 높였습니다.",
+      "입양문의는 Open API, 입양후기는 JSON 데이터 연동으로 정보를 제공하였습니다.",
+      "모바일과 태블릿 환경에서도 편리하게 사용할 수 있도록 CSS 기반 반응형 디자인을 적용했습니다."
+    ],
+    "skills": ["HTML", "CSS", "JavaScript"],
+    "image": "/img/project_1.jpg",
+    "siteLink": "https://soyoung00.github.io/onjib-project/",
+    "githubLink": "https://github.com/soyoung00/onjib-project.git"
+  }
+]
