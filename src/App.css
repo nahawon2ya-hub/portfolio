@@ -64,6 +64,7 @@ body{
   font-weight: 100;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .about_1 >div:nth-of-type(2) >span{
   color: #D3F8AE;
@@ -233,6 +234,7 @@ body{
 .skills_button{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 30px;
 }
 .skills_button >button{
@@ -425,6 +427,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  flex-wrap: wrap;
   gap: 30px;
 }
 .contact_github{
@@ -555,6 +558,7 @@ nav a.active img {
 
 /* =====tablet===== */
 @media (min-width: 769px) and (max-width: 1024px){
+  .ti-cursor{font-size: var(--ti-cursor-font-size, 60px);}
   .App {}
 
   .main {padding: 250px 10% 250px;}
@@ -723,13 +727,13 @@ nav a.active img {
 
   nav {
     top: 30px;
-    right: 0;
-    padding: 20px;
+    right: 30px;
+    padding: 5px 30px;
     width: 320px;
     gap: 30px;
     flex-direction: row;
     justify-content: flex-end;
-    backdrop-filter: blur(10px);
+    background-color: rgb(40 47 63 / 80%);
   }
     nav >a { font-size: 13px;}
     nav >a >img {width: 13px;}
@@ -737,6 +741,7 @@ nav a.active img {
 
 /* =====mobile===== */
 @media (max-width: 768px){
+  .ti-cursor{font-size: var(--ti-cursor-font-size, 45px);}
   .App {}
 
   .main {padding: 200px 10% 200px;}
@@ -885,8 +890,9 @@ nav a.active img {
   }
 
   .contact_title {font-size: 25px;}
-  .contact_number >img {width: 10px;}
-  .contact_number >div {font-size: 14px;}
+  .contact_number {gap: 4px;} 
+  .contact_number >img {width: 8px;}
+  .contact_number >div {font-size: 12px;}
   .contact_github >a {font-size: 14px;}
   .contact_github >a >img {width: 70px;}
   .contact_gmail >div {font-size: 14px;}
