@@ -14,7 +14,7 @@ function Skills() {
 
         <div className='skills_2'>
           <div className='skills_button'>            
-            <button className={`clickable ${type === 'all' ? 'active' : ''}`} onClick={() => setType('all')}>전체</button>
+            <button className={`clickable ${type === 'all' ? 'active' : ''}`} onClick={()=>{setType('all')}}>전체</button>
             <button className={`clickable ${type === 'front' ? 'active' : ''}`} onClick={()=>{setType('front')}}>프론트엔드</button>
             <button className={`clickable ${type === 'Deploy' ? 'active': ''}`} onClick={()=>{setType('Deploy')}}>배포</button>
             <button className={`clickable ${type === 'tool' ? 'active' : ''}`} onClick={()=>{setType('tool')}}>디자인</button>
