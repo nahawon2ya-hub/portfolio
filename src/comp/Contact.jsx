@@ -28,10 +28,10 @@ function Contact() {
         <div className='contact_id'>
 
           <span className='contact_github'>
-            <a href="https://github.com/nahawon2ya-hub" className='clickable'> 
+            <a href="https://github.com/nahawon2ya-hub" target="_blank" className='clickable'> 
               <img src='./img/contact_github.svg' alt="github" />
             </a>
-            <a href="https://github.com/nahawon2ya-hub" className='clickable'>
+            <a href="https://github.com/nahawon2ya-hub" target="_blank" className='clickable'>
               <div>GitHub</div>
             </a>
           </span>

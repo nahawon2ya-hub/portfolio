@@ -15,7 +15,7 @@ function Projects() {
 
                 <div className='projects_content'>
                   <div className='projects_content_1'>
-                    <div>Ongib</div>
+                    <div>{item.title}</div>
                     <a href={item.siteLink} target="_blank" className='clickable'><img src='./img/link.svg' /></a>
                     <a href={item.githubLink} target="_blank" className='clickable'><img src='./img/projects_github.svg' /></a>
                   </div>

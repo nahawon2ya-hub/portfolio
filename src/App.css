@@ -392,6 +392,7 @@ body {
   position: relative;
   width: 50%;
   margin: 60px auto 0;
+  padding-bottom: 30px;
 }
 
 .projects_content {
