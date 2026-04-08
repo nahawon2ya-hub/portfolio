@@ -31,13 +31,40 @@ body{
   flex-direction: column;
   justify-content: center;
   padding: 350px 10% 400px;
+  gap: 250px;
 }
-.main >div{
+.Main_keyboard{
   color: #D3F8AE;
   font-size: 118px;
   font-weight: 700;
   font-family: 'PyeongchangPeace';
 }
+.scrolldown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  animation: floatUpDown 2s ease-in-out infinite;
+}
+.scrolldown >img{
+  width: 30px;
+}
+.scrolldown >p{
+  font-size: 30px;
+  color: white;
+}
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 
 
 /* =====About===== */
