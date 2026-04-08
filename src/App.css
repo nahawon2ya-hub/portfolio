@@ -1271,9 +1271,9 @@ nav a.active img {
     gap: 60px;
   }
   .toast {
-    font-size: 12px;
-    left: 110px;
-    bottom: 420px;
+    font-size: 8px;
+    left: 40px;
+    bottom: 320px;
     padding: 12px 20px;
   }
   nav {
