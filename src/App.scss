@@ -45,6 +45,11 @@ body{
   align-items: center;
   gap: 20px;
   animation: floatUpDown 2s ease-in-out infinite;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.scrolldown.hide{
+  opacity: 0;
+  transform: translateY(20px);
 }
 .scrolldown >img{
   width: 30px;
