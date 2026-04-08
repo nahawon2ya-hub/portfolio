@@ -4,32 +4,110 @@
     "title": "Ongib",
     "subtitle": "유기동물 입양사이트",
     "date": "2026.03.02~2026.03.10",
+    "person":"3명",
     "description": "HTML, CSS, JavaScript, JSON, Open API를 활용해 개발한 웹 플랫폼입니다. 주요 기능을 폼과 이벤트 처리로 구현하여 사용성을 높였습니다. 입양문의는 Open API, 입양후기는 JSON 데이터 연동으로 정보를 제공하였습니다. 모바일과 태블릿 환경에서도 편리하게 사용할 수 있도록 CSS 기반 반응형 디자인을 적용했습니다.",
-    "skills": ["HTML", "CSS", "JavaScript"],
+    "skills": ["/img/html.jpg", "/img/css.jpg", "/img/javascript.jpg"],
     "image": "/img/project_1.jpg",
     "siteLink": "https://soyoung00.github.io/onjib-project/",
-    "githubLink": "https://github.com/soyoung00/onjib-project.git"
+    "githubLink": "https://github.com/soyoung00/onjib-project.git",
+    "trouble":[
+      {
+        "title":"1. 데이터가 하나의 필드에 통합되어 있어 필요한 값 분리가 어려운 문제",
+        "reason":"여러 정보가 하나의 문자열 필드에 결합되어 있어, 단순한 값 추출 방식으로는 필요한 데이터를 분리하기 어려웠음.",
+        "solve":"문자열 내 구분자를 기준으로 split()과 substring()을 활용해 필요한 데이터를 각각 분리하도록 처리함."
+      },
+      {
+        "title": "2. JSON 데이터를 그대로 출력해 페이지 이동 시에도 동일한 순서로 렌더링되는 문제",
+        "reason":"기본 배열 순서가 그대로 유지되어, 페이지 이동 시 사용자가 순서 변경 여부를 직관적으로 확인할 수 없었음. Math.random() 사용 시 새로고침마다 순서가 달라져 일관성이 없었음.",
+        "solve": "Seed 기반 난수 함수를 구현하여 고정된 랜덤 정렬을 적용함. 페이지 이동 시 순서는 달라 보이지만 새로고침해도 동일한 순서를 유지하도록 개선함."
+      },
+      {
+        "title":"3. 입양 상세 페이지에서 새로고침 또는 직접 URL 접근 시 데이터가 표시되지 않는 문제",
+        "reason":"상세 페이지가 목록 페이지에서 전달된 데이터에 의존하도록 설계되어, 새로 로드될 경우 참조할 데이터가 존재하지 않았음.",
+        "solve":"localStorage에 선택된 데이터를 저장하고, 상세 페이지 로드 시 해당 데이터를 불러와 화면에 출력하도록 구현함."
+      }     
+    ]   
   },
   {
     "id": 2,
     "title": "Portfolio",
     "subtitle": "포트폴리오",
     "date": "2026.03.30~2026.04.06",
+    "person":"1명",
     "description": "React를 기반으로 컴포넌트 구조를 설계한 포트폴리오 웹사이트입니다. useState, useEffect와 스크롤 애니메이션을 활용해 사용자 인터랙션을 구현했습니다. JSON 데이터를 기반으로 프로젝트와 기술 스택을 동적으로 렌더링하여 유지보수성을 높였습니다. 또한 반응형 디자인을 적용해 다양한 디바이스 환경에서도 자연스럽게 동작하도록 구성했습니다.",
-    "skills": ["HTML", "Sass", "JavaScript", "React"],
+    "skills": ["/img/html.jpg", "/img/sass.jpg", "/img/javascript.jpg", "/img/react.jpg"],
     "image": "/img/portfolio.jpg",
     "siteLink": "https://hwportfolio.vercel.app/",
-    "githubLink": "https://github.com/nahawon2ya-hub/portfolio.git"
+    "githubLink": "https://github.com/nahawon2ya-hub/portfolio.git",
+    "trouble":[
+      {
+        "title": "1. Scroll Spy 오프셋 불안정",
+        "reason":"기존 -100 오프셋 사용 → 화면 크기나 레이아웃 변화 시 active 위치가 불안정함.",
+        "solve": "섹션 위치 계산과 비교 시 오프셋을 제거하고, 현재 스크롤 위치가 각 섹션 시작 위치 이상일 때 active가 되도록 변경하여 활성화 위치를 정확하게 조정함."
+      },
+      {
+        "title":"2. 섹션 위치 계산",
+        "reason":"Scroll Spy가 섹션 위치를 정확히 모름 → 메뉴 highlight 불안정.",
+        "solve":"각 섹션의 화면 내 위치(offsetTop)를 한 번 계산하여 상태로 저장하고, 스크롤 이벤트나 메뉴 클릭 시 이 정보를 기반으로 active 메뉴를 업데이트하도록 개선함."
+      }     
+    ] 
   },
   {
-    "id": 3,
-    "title": "Ongib",
-    "subtitle": "유기동물 입양사이트",
-    "date": "2026.03.02~2026.03.10",
-    "description": "HTML, CSS, JavaScript, JSON, Open API를 활용해 개발한 웹 플랫폼입니다. 주요 기능을 폼과 이벤트 처리로 구현하여 사용성을 높였습니다. 입양문의는 Open API, 입양후기는 JSON 데이터 연동으로 정보를 제공하였습니다. 모바일과 태블릿 환경에서도 편리하게 사용할 수 있도록 CSS 기반 반응형 디자인을 적용했습니다.",
-    "skills": ["HTML", "CSS", "JavaScript"],
-    "image": "/img/project_1.jpg",
-    "siteLink": "https://soyoung00.github.io/onjib-project/",
-    "githubLink": "https://github.com/soyoung00/onjib-project.git"
+    "id": 2,
+    "title": "Portfolio",
+    "subtitle": "포트폴리오",
+    "date": "2026.03.30~2026.04.06",
+    "person":"1명",
+    "description": "React를 기반으로 컴포넌트 구조를 설계한 포트폴리오 웹사이트입니다. useState, useEffect와 스크롤 애니메이션을 활용해 사용자 인터랙션을 구현했습니다. JSON 데이터를 기반으로 프로젝트와 기술 스택을 동적으로 렌더링하여 유지보수성을 높였습니다. 또한 반응형 디자인을 적용해 다양한 디바이스 환경에서도 자연스럽게 동작하도록 구성했습니다.",
+    "skills": ["/img/html.jpg", "/img/sass.jpg", "/img/javascript.jpg", "/img/react.jpg"],
+    "image": "/img/portfolio.jpg",
+    "siteLink": "https://hwportfolio.vercel.app/",
+    "githubLink": "https://github.com/nahawon2ya-hub/portfolio.git",
+    "trouble":[
+      {
+        "title":"1. 클릭 이동 시 스크롤 이벤트 충돌",
+        "reason":"메뉴 클릭 중 Scroll Spy와 상태 업데이트 충돌 → 메뉴 highlight 깜빡임.",
+        "solve":"클릭 이동 중에는 스크롤 이벤트를 일시적으로 무시하도록 플래그(ignoreScroll)를 사용하고, 스크롤 이동이 완료된 후에 다시 활성화하여 메뉴 highlight가 자연스럽게 표시되도록 조정함."
+      },
+      {
+        "title": "2. Scroll Spy 오프셋 불안정",
+        "reason":"기존 -100 오프셋 사용 → 화면 크기나 레이아웃 변화 시 active 위치가 불안정함.",
+        "solve": "섹션 위치 계산과 비교 시 오프셋을 제거하고, 현재 스크롤 위치가 각 섹션 시작 위치 이상일 때 active가 되도록 변경하여 활성화 위치를 정확하게 조정함."
+      },
+      {
+        "title":"3. 섹션 위치 계산",
+        "reason":"Scroll Spy가 섹션 위치를 정확히 모름 → 메뉴 highlight 불안정.",
+        "solve":"각 섹션의 화면 내 위치(offsetTop)를 한 번 계산하여 상태로 저장하고, 스크롤 이벤트나 메뉴 클릭 시 이 정보를 기반으로 active 메뉴를 업데이트하도록 개선함."
+      }     
+    ] 
+  },
+  {
+    "id": 2,
+    "title": "Portfolio",
+    "subtitle": "포트폴리오",
+    "date": "2026.03.30~2026.04.06",
+    "person":"1명",
+    "description": "React를 기반으로 컴포넌트 구조를 설계한 포트폴리오 웹사이트입니다. useState, useEffect와 스크롤 애니메이션을 활용해 사용자 인터랙션을 구현했습니다. JSON 데이터를 기반으로 프로젝트와 기술 스택을 동적으로 렌더링하여 유지보수성을 높였습니다. 또한 반응형 디자인을 적용해 다양한 디바이스 환경에서도 자연스럽게 동작하도록 구성했습니다.",
+    "skills": ["/img/html.jpg", "/img/sass.jpg", "/img/javascript.jpg", "/img/react.jpg"],
+    "image": "/img/portfolio.jpg",
+    "siteLink": "https://hwportfolio.vercel.app/",
+    "githubLink": "https://github.com/nahawon2ya-hub/portfolio.git",
+    "trouble":[
+      {
+        "title":"1. 클릭 이동 시 스크롤 이벤트 충돌",
+        "reason":"메뉴 클릭 중 Scroll Spy와 상태 업데이트 충돌 → 메뉴 highlight 깜빡임.",
+        "solve":"클릭 이동 중에는 스크롤 이벤트를 일시적으로 무시하도록 플래그(ignoreScroll)를 사용하고, 스크롤 이동이 완료된 후에 다시 활성화하여 메뉴 highlight가 자연스럽게 표시되도록 조정함."
+      },
+      {
+        "title": "2. Scroll Spy 오프셋 불안정",
+        "reason":"기존 -100 오프셋 사용 → 화면 크기나 레이아웃 변화 시 active 위치가 불안정함.",
+        "solve": "섹션 위치 계산과 비교 시 오프셋을 제거하고, 현재 스크롤 위치가 각 섹션 시작 위치 이상일 때 active가 되도록 변경하여 활성화 위치를 정확하게 조정함."
+      },
+      {
+        "title":"3. 섹션 위치 계산",
+        "reason":"Scroll Spy가 섹션 위치를 정확히 모름 → 메뉴 highlight 불안정.",
+        "solve":"각 섹션의 화면 내 위치(offsetTop)를 한 번 계산하여 상태로 저장하고, 스크롤 이벤트나 메뉴 클릭 시 이 정보를 기반으로 active 메뉴를 업데이트하도록 개선함."
+      }     
+    ] 
   }
 ]

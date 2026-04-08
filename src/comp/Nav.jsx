@@ -23,7 +23,7 @@ function Nav() {
         let ticking = false;
 
         const handleScroll = () => {
-            if (ignoreScroll) return; // 클릭 후 잠시 무시
+            //if (ignoreScroll) return; // 클릭 후 잠시 무시
 
             const currentScrollY = window.scrollY;
             setScrollY(currentScrollY);
@@ -57,7 +57,7 @@ function Nav() {
         const el = document.querySelector(`.${section}`);
         if (!el) return;
 
-        setClickActive(section);
+        //setClickActive(section);
         prevActiveRef.current = section;
         setIgnoreScroll(true); // 클릭 후 scroll 이벤트 무시
 
