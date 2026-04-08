@@ -582,6 +582,7 @@ body {
 
 .popup_link > span > a {
   transition: 0.2s;
+  color: black;
 }
 
 .popup_link > span > a:visited {
