@@ -53,32 +53,52 @@
     ] 
   },
   {
-    "id": 2,
-    "title": "Portfolio",
-    "subtitle": "포트폴리오",
-    "date": "2026.03.30~2026.04.06",
-    "person":"1명",
-    "description": "React를 기반으로 컴포넌트 구조를 설계한 포트폴리오 웹사이트입니다. useState, useEffect와 스크롤 애니메이션을 활용해 사용자 인터랙션을 구현했습니다. JSON 데이터를 기반으로 프로젝트와 기술 스택을 동적으로 렌더링하여 유지보수성을 높였습니다. 또한 반응형 디자인을 적용해 다양한 디바이스 환경에서도 자연스럽게 동작하도록 구성했습니다.",
-    "skills": ["/img/html.jpg", "/img/sass.jpg", "/img/javascript.jpg", "/img/react.jpg"],
-    "image": "/img/portfolio.jpg",
-    "siteLink": "https://hwportfolio.vercel.app/",
-    "githubLink": "https://github.com/nahawon2ya-hub/portfolio.git",
+    "id": 3,
+    "title": "TRIPLOG",
+    "subtitle": "올인원 여행 플래너 플랫폼",
+    "date": "2026.04.09 ~ 2026.05.08",
+    "person":"4명",
+    "description": "Next.js와 MongoDB를 기반으로 여행의 전 과정(계획, 준비, 관리, 기록)을 유기적으로 연결한 통합 서비스입니다. 지도 API를 활용한 직관적인 동선 설계와 ImgBB API 기반의 갤러리 기능을 통해 사용자 경험을 최적화하였습니다. 특히 반응형 디자인과 BFCache 이슈 해결, 인증 데이터 로딩 최적화 등 기술적 완성도를 높여 멀티 디바이스 환경에서도 안정적인 서비스를 제공합니다.",
+    "skills": ["/img/next.js.jpg", "/img/react.jpg", "/img/sass.jpg", "/img/mongodb.jpg"],
+    "image": "/img/TRIPLOG.jpg",
+    "siteLink": "",
+    "githubLink": "https://github.com/h87731381-droid/TripLog.git",
     "trouble":[
       {
-        "title":"1. 클릭 이동 시 스크롤 이벤트 충돌",
-        "reason":"메뉴 클릭 중 Scroll Spy와 상태 업데이트 충돌 → 메뉴 highlight 깜빡임.",
-        "solve":"클릭 이동 중에는 스크롤 이벤트를 일시적으로 무시하도록 플래그(ignoreScroll)를 사용하고, 스크롤 이동이 완료된 후에 다시 활성화하여 메뉴 highlight가 자연스럽게 표시되도록 조정함."
+        "title":"1. 반응형 환경에서의 드래그 앤 드롭 레이아웃 붕괴 문제",
+        "reason":"PC의 자유 배치 좌표(px)가 모바일/태블릿의 좁은 화면에서도 그대로 유지되어 요소가 화면 밖으로 이탈하거나 가독성을 해침.",
+        "solve":"브라우저 너비를 감지하는 isResize 상태를 생성하여 1280px 미만 환경에서는 드래그 기능을 차단(disabled)하고 좌표를 강제 초기화(0,0)하여 리스트형 레이아웃으로 전환함."
       },
       {
-        "title": "2. Scroll Spy 오프셋 불안정",
-        "reason":"기존 -100 오프셋 사용 → 화면 크기나 레이아웃 변화 시 active 위치가 불안정함.",
-        "solve": "섹션 위치 계산과 비교 시 오프셋을 제거하고, 현재 스크롤 위치가 각 섹션 시작 위치 이상일 때 active가 되도록 변경하여 활성화 위치를 정확하게 조정함."
+        "title": "2. 소셜 로그인 후 뒤로가기 시 UI 먹통 및 경로 유실 문제",
+        "reason":"브라우저의 BFCache로 인해 자바스크립트 실행이 멈춘 스냅샷이 복원되어 페이지가 정지되고, 로그인 후 이전 작업 페이지로 돌아가지 못하는 현상 발생.",
+        "solve": "layout.js에서 pageshow 이벤트를 감지해 캐시 복원 시 강제 새로고침을 수행하고, 로그인 전 localStorage에 현재 경로를 저장한 뒤 callbackUrl을 통해 로그인 완료 후 해당 경로로 자동 리다이렉트되도록 구현함."
       },
       {
-        "title":"3. 섹션 위치 계산",
-        "reason":"Scroll Spy가 섹션 위치를 정확히 모름 → 메뉴 highlight 불안정.",
-        "solve":"각 섹션의 화면 내 위치(offsetTop)를 한 번 계산하여 상태로 저장하고, 스크롤 이벤트나 메뉴 클릭 시 이 정보를 기반으로 active 메뉴를 업데이트하도록 개선함."
-      }     
+        "title":"3. 새로고침 시 인증 데이터 로드 지연으로 인한 페칭 실패",
+        "reason":"컴포넌트 마운트 시점에 session 정보가 아직 로드되지 않아 데이터 요청이 누락됨. 임시로 사용한 setTimeout 방식은 데이터 로드 안정성을 보장하지 못함.",
+        "solve":"useEffect의 의존성 배열에 session 객체를 추가하여 인증 상태 업데이트 시 자동으로 재실행되도록 하고, 유효한 데이터가 있을 때만 호출하는 가드 절을 적용하여 불필요한 API 호출을 방지함."
+      },
+      {
+        "title":"4. 팝업 닫기 시 퇴장(Exit) 애니메이션 미작동 문제",
+        "reason":"React의 조건부 렌더링 사용 시 상태가 변경되는 즉시 DOM에서 컴포넌트가 제거되어, CSS로 설정한 크기 축소(Scale) 애니메이션이 보여질 시간적 여유가 없었음.",
+        "solve":"상태를 세분화하여 닫기 클릭 시 먼저 애니메이션 상태만 변경하고, setTimeout을 통해 애니메이션 시간(300ms)이 경과한 뒤에 컴포넌트가 언마운트되도록 지연 로직을 설계함."
+      },
+      {
+        "title":"5. 상세 정보 로딩 중 빈 화면 노출 및 이벤트 버블링 간섭",
+        "reason":"API 응답 지연 시 사용자에게 진행 상황이 전달되지 않았고, 팝업 활성화 상태에서도 배경 스크롤이나 버튼 클릭 등 불필요한 상호작용이 발생함.",
+        "solve":"데이터 로딩 중 스피너/메시지를 노출하는 로딩 UI를 도입하고, 팝업 하단에 투명 오버레이 배치 및 e.stopPropagation()을 적용하여 배경 클릭 차단 및 안정적인 팝업 집중 환경을 구축함."
+      },       
+      {
+        "title":"6. 일정 추가 Input의 입력 방해 및 데이터 입력 로직 미흡 문제",
+        "reason":"autoComplete 설정 부재로 최근 검색어 창이 입력란을 가려 UI를 방해했으며, 교통수단 미선택 상태에서도 메모 입력이 가능해 데이터의 연관성이 떨어지는 문제가 발생함.",
+        "solve":"autoComplete=off로 UI 방해 요소를 제거하고, 교통수단 선택 여부에 따른 disabled 처리와 useEffect 및 useRef를 활용한 자동 포커싱(Focus) 로직을 구현하여 메모 입력을 직관적으로 유도함."
+      },       
+      {
+        "title":"7. API 리스트 출력 시 스크롤 과다 발생 및 UI 접근성 저하 문제",
+        "reason":"다량의 관광지 데이터 호출 시 리스트가 길어져 하단 버튼(완료 등) 접근이 어려워졌으며, 전역 스타일로 스크롤바가 숨겨져 있어 리스트 탐색의 직관성이 결여됨.",
+        "solve":"부모 컨테이너에 고정 높이와 overflow-y: auto를 설정하고, &::-webkit-scrollbar에 display: block !important 및 scrollbar-width: thin을 적용하여 특정 영역 내에서만 독립적으로 작동하는 스크롤 UI를 구현함."
+      }       
     ] 
   },
   {

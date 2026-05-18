@@ -1,8 +1,8 @@
-
 import { useEffect } from "react";
 import TypeIt from "typeit-react";
 
 function Main() {
+
   useEffect(() => {
     const el = document.querySelector(".scrolldown");
 
@@ -13,6 +13,7 @@ function Main() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
 
   return (
     <section className='main'>        
@@ -26,6 +27,7 @@ function Main() {
               }}
             />
         </div>
+
         <div className="scrolldown">
           <img src="./img/scrolldown.svg" />
           <p>Scroll Down</p>
