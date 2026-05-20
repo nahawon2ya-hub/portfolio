@@ -109,7 +109,7 @@
     "person":"1명",
     "description": "Vue.js를 기반으로 Open API를 연동하여 실시간 뉴스 검색 및 카테고리 필터링을 제공하는 반응형 웹 어플리케이션입니다. fetch API를 통해 외부 서버의 JSON 데이터를 동적으로 받아와 UI에 바인딩하며, Swiper.js를 활용해 모바일 환경에 최적화된 슬라이드 레이아웃을 구현했습니다. 데이터 요청 중에는 로딩 스피너를 표시하고 결과가 없을 때는 예외 안내 화면을 띄우도록 조건부 렌더링(v-if)을 적용하여 사용자 경험을 보완했습니다.",
     "skills": ["/img/vue.jpg", "/img/javascript.jpg"],
-    "image": "/img/news.jpg",
+    "image": "/img/News.jpg",
     "siteLink": "https://news-p.vercel.app/",
     "githubLink": "https://github.com/nahawon2ya-hub/news-project.git",
     "trouble":[
