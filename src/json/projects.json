@@ -102,32 +102,27 @@
     ] 
   },
   {
-    "id": 2,
-    "title": "Portfolio",
-    "subtitle": "포트폴리오",
-    "date": "2026.03.30~2026.04.06",
+    "id": 4,
+    "title": "News",
+    "subtitle": "뉴스",
+    "date": "2026.05.17~2026.05.18",
     "person":"1명",
-    "description": "React를 기반으로 컴포넌트 구조를 설계한 포트폴리오 웹사이트입니다. useState, useEffect와 스크롤 애니메이션을 활용해 사용자 인터랙션을 구현했습니다. JSON 데이터를 기반으로 프로젝트와 기술 스택을 동적으로 렌더링하여 유지보수성을 높였습니다. 또한 반응형 디자인을 적용해 다양한 디바이스 환경에서도 자연스럽게 동작하도록 구성했습니다.",
-    "skills": ["/img/html.jpg", "/img/sass.jpg", "/img/javascript.jpg", "/img/react.jpg"],
-    "image": "/img/portfolio.jpg",
-    "siteLink": "https://hwportfolio.vercel.app/",
-    "githubLink": "https://github.com/nahawon2ya-hub/portfolio.git",
+    "description": "Vue.js를 기반으로 Open API를 연동하여 실시간 뉴스 검색 및 카테고리 필터링을 제공하는 반응형 웹 어플리케이션입니다. fetch API를 통해 외부 서버의 JSON 데이터를 동적으로 받아와 UI에 바인딩하며, Swiper.js를 활용해 모바일 환경에 최적화된 슬라이드 레이아웃을 구현했습니다. 데이터 요청 중에는 로딩 스피너를 표시하고 결과가 없을 때는 예외 안내 화면을 띄우도록 조건부 렌더링(v-if)을 적용하여 사용자 경험을 보완했습니다.",
+    "skills": ["/img/vue.jpg", "/img/javascript.jpg"],
+    "image": "/img/news.jpg",
+    "siteLink": "https://news-p.vercel.app/",
+    "githubLink": "https://github.com/nahawon2ya-hub/news-project.git",
     "trouble":[
       {
-        "title":"1. 클릭 이동 시 스크롤 이벤트 충돌",
-        "reason":"메뉴 클릭 중 Scroll Spy와 상태 업데이트 충돌 → 메뉴 highlight 깜빡임.",
-        "solve":"클릭 이동 중에는 스크롤 이벤트를 일시적으로 무시하도록 플래그(ignoreScroll)를 사용하고, 스크롤 이동이 완료된 후에 다시 활성화하여 메뉴 highlight가 자연스럽게 표시되도록 조정함."
+        "title":"1. 검색 폼 엔터 입력 시 데이터 비동기 동기화 타이밍 이슈",
+        "reason":"검색창에서 엔터 키를 누를 때 Vue의 양방향 데이터 바인딩(v-model)이 변수(keyword) 값을 완전히 갱신하기 전에 비동기 fetch 함수가 먼저 호출되는 현상 발생. 이로 인해 입력한 최신 키워드가 아닌, 이전 키워드나 공백 상태로 요청이 송신되어 검색 결과가 올바르게 갱신되지 않고 창만 닫히는 UI 결함 발견.",
+        "solve":"폼 제출 시 이벤트 객체(event)를 활용하여 DOM 요소에 직접 접근한 뒤, input 엘리먼트의 실제 입력값(value)을 this.keyword에 강제로 즉시 매핑함. 이후 데이터 흐름이 보장된 상태에서 검색 메서드(newsList)를 순차적으로 실행하도록 비즈니스 로직을 개편하여 데이터 왜곡 현상을 완벽히 차단함."
       },
       {
-        "title": "2. Scroll Spy 오프셋 불안정",
-        "reason":"기존 -100 오프셋 사용 → 화면 크기나 레이아웃 변화 시 active 위치가 불안정함.",
-        "solve": "섹션 위치 계산과 비교 시 오프셋을 제거하고, 현재 스크롤 위치가 각 섹션 시작 위치 이상일 때 active가 되도록 변경하여 활성화 위치를 정확하게 조정함."
-      },
-      {
-        "title":"3. 섹션 위치 계산",
-        "reason":"Scroll Spy가 섹션 위치를 정확히 모름 → 메뉴 highlight 불안정.",
-        "solve":"각 섹션의 화면 내 위치(offsetTop)를 한 번 계산하여 상태로 저장하고, 스크롤 이벤트나 메뉴 클릭 시 이 정보를 기반으로 active 메뉴를 업데이트하도록 개선함."
-      }     
+        "title": "2. 네트워크 지연 및 검색 결과 부재 시 빈 화면 노출로 인한 UX 저하",
+        "reason":"API 서버의 응답 속도가 지연될 때 사용자가 데이터 수신 상태를 인지하지 못해 중복 요청을 보내거나 시스템 오류로 오인할 위험이 있었음. 또한, 일치하는 데이터가 없을 때도 UI 컴포넌트(Swiper, ul)가 빈 껍데기 레이아웃 상태로 노출되어 시각적 완성도가 떨어지는 문제 발생.",
+        "solve": "컴포넌트 내부에 로딩 상태를 제어할 플래그 변수(isLoading)를 신설하여 요청 시작과 완료 시점을 명확히 통제함. 이를 v-if / v-else 디렉티브와 결합하여 로딩 중에는 CSS 애니메이션 기반의 휠 스피너를 노출하고, 데이터 배열의 길이가 0일 때(data.length === 0)는 `검색 결과가 없습니다.`라는 예외 안내 템플릿이 동적으로 렌더링되도록 방어 코드를 구축함."
+      }   
     ] 
   }
 ]
