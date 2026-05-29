@@ -61,7 +61,7 @@
     "description": "Next.js와 MongoDB를 기반으로 여행의 전 과정(계획, 준비, 관리, 기록)을 유기적으로 연결한 통합 서비스입니다. 지도 API를 활용한 직관적인 동선 설계와 ImgBB API 기반의 갤러리 기능을 통해 사용자 경험을 최적화하였습니다. 특히 반응형 디자인과 BFCache 이슈 해결, 인증 데이터 로딩 최적화 등 기술적 완성도를 높여 멀티 디바이스 환경에서도 안정적인 서비스를 제공합니다.",
     "skills": ["/img/next.js.jpg", "/img/react.jpg", "/img/sass.jpg", "/img/mongodb.jpg"],
     "image": "/img/TRIPLOG.jpg",
-    "siteLink": "",
+    "siteLink": "https://my-triplog-nopv.vercel.app/",
     "githubLink": "https://github.com/h87731381-droid/TripLog.git",
     "trouble":[
       {
@@ -124,5 +124,29 @@
         "solve": "컴포넌트 내부에 로딩 상태를 제어할 플래그 변수(isLoading)를 신설하여 요청 시작과 완료 시점을 명확히 통제함. 이를 v-if / v-else 디렉티브와 결합하여 로딩 중에는 CSS 애니메이션 기반의 휠 스피너를 노출하고, 데이터 배열의 길이가 0일 때(data.length === 0)는 `검색 결과가 없습니다.`라는 예외 안내 템플릿이 동적으로 렌더링되도록 방어 코드를 구축함."
       }   
     ] 
+  },
+  {
+    "id": 5,
+    "title": "Eng-Cha",
+    "subtitle": "교육검색플렛폼",
+    "date": "2026.05.21~2026.05.27",
+    "person":"1명",
+    "description": "React와 YouTube API를 연동하여 단계별 유아 영어 교육 콘텐츠를 제공하는 반응형 웹 어플리케이션입니다. React Router(useLocation)로 사용자의 현재 페이지(Step 1~3)를 감지하고, 해당 단계에 맞는 키워드가 자동으로 조합되도록 Axios 검색 시스템을 구축했습니다.",
+    "skills": ["/img/react.jpg"],
+    "image": "/img/Eng-Cha.jpg",
+    "siteLink": "https://eng-cha.vercel.app/",
+    "githubLink": "https://github.com/nahawon2ya-hub/Eng-Cha.git",
+    "trouble":[
+      {
+        "title": "1. YouTube API 할당량 제한 문제 및 아키텍처 전환",
+        "reason": "클라이언트에서 유튜브 API를 직접 호출하다 보니 테스트 과정에서 일일 무료 제공 할당량이 조기 소진되어 서비스가 중단되는 문제 발생.",
+        "solve": "백엔드 서버를 구축하고 크론탭(Schedule)을 연동하여, 주기적으로 유튜브 데이터를 수집 후 MongoDB에 저장하는 구조로 변경하여 안정성을 확보함."
+      },
+      {
+        "title": "2. Zustand 스토어 내 필터링 비즈니스 로직 누락",
+        "reason": "검색어 입력이나 알파벳 버튼 클릭 시 키워드가 스토어로 정상 전달은 되었으나, 조건문 내부에서 실제 데이터를 걸러주는 배열 메서드(.filter())가 누락되어 전체 데이터만 그대로 반환되는 결함 발생.",
+        "solve": "스토어 내 changeData 함수를 개편하여 전달받은 키워드 유무에 따라 카테고리 배열 데이터를 분기하고, .filter()를 적용하여 전역 상태(data)가 실시간으로 동기화되도록 수정함."
+      }
+    ]
   }
 ]
