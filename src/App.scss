@@ -712,8 +712,14 @@ nav a.active img {
   .ti-cursor{font-size: var(--ti-cursor-font-size, 60px);}
   .App {}
 
-  .main {padding: 200px 10% 250px;}
+  .main {
+    padding: 200px 10% 250px;
+    gap: 100px;
+  }
   .main >div{font-size: 50px;}
+
+  .scrolldown > p {font-size: 25px;}
+  .scrolldown > img {width: 25px;}
 
   .cube >div {
     width: 300px;
@@ -835,8 +841,11 @@ nav a.active img {
   .ti-cursor{font-size: var(--ti-cursor-font-size, 45px);}
   .App {}
 
-  .main {padding: 100px 10% 120px;}
+  .main {padding: 100px 10% 120px; gap: 95px;}
   .main >div{font-size: 23px;}
+
+  .scrolldown > p {font-size: 18px;}
+  .scrolldown > img {width: 18px;}
 
   .about {padding: 0 17%;}
   .about_1 >div:nth-of-type(1) {font-size: 18px;}
